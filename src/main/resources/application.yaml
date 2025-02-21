@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ragbatchone
+  ai:
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1536
+        initialize-schema: true
+
+  main:
+    web-application-type: none
+
+  batch:
+    jdbc:
+      initialize-schema: always
+
+logging:
+  level:
+    org.springframework.cloud.task: debug

@@ -1,0 +1,58 @@
+= Sample Application that demonstrates AIBatchTools libaries
+
+The purpose of this project is to demonstrate the usage of the TikaItemReader, VectorStoreItemReader and their builders.
+
+== Requirements:
+
+* Java 17 or Above
+
+== Classes:
+
+* RagbatchoneApplication - The boot application for this project.
+* RagbatchoneConfiguration - Provides the configuration for the batch job.
+
+== Build:
+
+Before building be sure to pull and build the https://github.com/cppwfs/aibatchtools[aibatchtools] project based on its https://github.com/cppwfs/aibatchtools/blob/main/README.adoc[README] instructions
+[source,shell]
+----
+mvn clean package -DskipTests
+----
+
+== Before Running the App
+You will need to bring up a `pgvector` data store prior to running the application.  This project provides a `compose.yml` that will start one for you.
+
+From the project root directory execute the following:
+[source,shell]
+```
+docker compose up -d
+```
+
+To shutdown the `pgvector` data store execute the following:
+```
+docker compose down
+```
+
+== Run:
+
+* Since this project is creating its embeddings for OpenAI you need to have the `SPRING_AI_OPENAI_API_KEY` set.
+* Properties prefixed with `spring_datasource_` are the datasource settings for Batch and Task tables.
+* Properties prefixed with `vector_datasource_` are the datasource settings for the vector database.
+
+[source,shell]
+----
+export SPRING_AI_OPENAI_API_KEY=<yourkey>
+
+export spring_datasource_url=jdbc:mariadb://localhost:3306/task
+export spring_datasource_username=admin
+export spring_datasource_password=password
+export spring_datasource_driverClassName=org.mariadb.jdbc.Driver
+
+export vector_datasource_url=jdbc:postgresql://localhost:5432/sbdocs
+export vector_datasource_username=admin
+export vector_datasource_password=password
+export vector_datasource_driverClassName=org.postgresql.Driver
+
+
+java -jar target/ragbatchone-0.0.1-SNAPSHOT.jar
+----
