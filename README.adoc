@@ -1,6 +1,6 @@
 = Sample Application that demonstrates AIBatchTools libaries
 
-The purpose of this project is to demonstrate the usage of the TikaItemReader, VectorStoreItemReader and their builders.
+The purpose of this project is to demonstrate the usage of the io.spring.aibatchtools.TikaItemReader, VectorStoreItemReader and their builders.
 
 == Requirements:
 

@@ -1,5 +1,5 @@
 The purpose of this presentation is to show users methods that will simplify loading data into a vector database such that it can be used for RAG implementations, using Spring Boot, Spring Batch, and Spring AI.
-This presentation will show you how you can use the VectorStoreWriter provided in the project that is associated with this project to populate the database along with any of the readers provided out of the box by Spring Batch.
+This presentation will show you how you can use the io.spring.aibatchtools.VectorStoreWriter provided in the project that is associated with this project to populate the database along with any of the readers provided out of the box by Spring Batch.
 
 
 = Instructions on building the project associated with presentation:
