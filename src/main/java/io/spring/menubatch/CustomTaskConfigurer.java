@@ -1,4 +1,4 @@
-package io.spring.ragbatchone;
+package io.spring.menubatch;
 
 import javax.sql.DataSource;
 

@@ -15,7 +15,6 @@ public class VectorStoreWriter<T> implements ItemWriter<T>, InitializingBean {
 
     private final Logger logger =  LoggerFactory.getLogger(this.getClass());
 
-
     private VectorStore vectorStore;
 
     private String name;
@@ -29,12 +28,6 @@ public class VectorStoreWriter<T> implements ItemWriter<T>, InitializingBean {
         for(T item : chunk.getItems()) {
             Document document = (Document) item;
             logger.info("Writing doc");
-            document.getMetadata().forEach(new BiConsumer<String, Object>() {
-                @Override
-                public void accept(String s, Object o) {
-                    logger.info(s + " " + o);
-                }
-            });
             vectorStore.accept(Collections.singletonList(document));
         }
     }

@@ -1,4 +1,4 @@
-package io.spring.ragbatchone;
+package io.spring.menubatch;
 
 import javax.sql.DataSource;
 
@@ -30,7 +30,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @EnableTask
-public class RagbatchoneConfiguration {
+public class MenuBatchConfiguration {
 
     @Value("classpath:/docs/Menu.pdf")
     private Resource textResource;
@@ -45,7 +45,7 @@ public class RagbatchoneConfiguration {
 
     @Bean
     public ItemWriter writer(VectorStore vectorStore) {
-        return new VectorStoreWriterBuilder().
+        return new VectorStoreWriterBuilder().name("VectorStoreWriter").
                 contentFieldName("message").
                 metaDataFieldName("keyData").
                 vectorStore(vectorStore).build();

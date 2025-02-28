@@ -1,13 +1,13 @@
-package io.spring.ragbatchone;
+package io.spring.menubatch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RagbatchoneApplication {
+public class MenuBatchApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RagbatchoneApplication.class, args);
+		SpringApplication.run(MenuBatchApplication.class, args);
 	}
 
 }
